@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasi Padang Premium | Warung Padang Elegant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary: #c41e3a;
+            --primary-dark: #9e162f;
+            --secondary: #d4af37;
+            --accent: #228b22;
+            --dark: #1a1200;
+            --light: #fff8e1;
+            --brown: #5d4037;
+            --gradient: linear-gradient(135deg, #c41e3a, #d4af37, #228b22);
+            --shadow: 0 10px 30px rgba(196, 30, 58, 0.15);
+            --shadow-hover: 0 20px 40px rgba(196, 30, 58, 0.25);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf0;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(rgba(26, 18, 0, 0.95), rgba(26, 18, 0, 0.9));
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .cart-icon {
+            position: relative;
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-icon:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: var(--dark);
+            font-size: 0.8rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+  }
+/* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--secondary);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: var(--gradient);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 2rem 5%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-20px); }
+        }
+
+        /* Menu Section */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--brown);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+  }
+.menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary);
+        }
+
+        .menu-card.hot::before {
+            content: '🔥 HOT';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .menu-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-card:hover .menu-image {
+            transform: scale(1.05);
+        }
+
+        .menu-content {
+            padding: 1.5rem;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .menu-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .menu-rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            transition: var(--transition);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin: 0 1rem;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--brown);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+
+        /* Contact & Location */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+}
+.contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Opening Hours */
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hour-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .hour-card.today {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hour-day {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--brown);
+        }
+
+        .hour-card.today .hour-day {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(var(--dark), #000);
+            color: white;
+            padding: 5rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-sidebar {
+                width: 90%;
+                right: -100%;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2 style="color: var(--brown);"><i class="fas fa-shopping-cart"></i> Keranjang Pesanan</h2>
+            <button onclick="closeCart()" style="background: none; border: none; font-size: 1.5rem; color: var(--primary); cursor: pointer;">
+      <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="cart-total" style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #eee;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                <h3 style="color: var(--brown);">Total Pesanan:</h3>
+                <h3 style="color: var(--primary);" id="cartTotal">Rp 0</h3>
+            </div>
+            <button onclick="checkout()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 1.2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                <i class="fas fa-whatsapp"></i> Pesan via WhatsApp
+            </button>
+            <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                *Pesanan akan dikirim ke WhatsApp kami untuk konfirmasi
+            </p>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-utensils"></i>
+                Nasi<span>Padang</span>Premium
+            </a>
+            
+            <div class="nav-links">
+                <a href="#home" class="active"><i class="fas fa-home"></i> Beranda</a>
+                <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="#about"><i class="fas fa-store"></i> Tentang Kami</a>
+                <a href="#contact"><i class="fas fa-map-marker-alt"></i> Lokasi</a>
+                <a href="#testimonials"><i class="fas fa-star"></i> Testimoni</a>
+                <div class="cart-icon" onclick="openCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i> PROMO HARI INI: DISKON 20%
+            </div>
+            <h1>Nasi Padang <br>Asli Minangkabau</h1>
+            <p>Rasa autentik warisan turun-temurun dari ranah Minang. Setiap suapan mengingatkan pada cita rasa asli Padang yang kaya rempah.</p>
+            <div style="display: flex; gap: 1.5rem; margin-top: 3rem;">
+                <button onclick="scrollToMenu()" style="background: var(--secondary); color: var(--dark); border: none; padding: 1.2rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                    <i class="fas fa-utensils"></i> Lihat Menu
+                </button>
+                <button onclick="openCart()" style="background: transparent; color: white; border: 2px solid var(--secondary); padding: 1.2rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="section" style="padding-top: 2rem;">
+        <div class="promo-banner fade-in">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">🎉 PROMO SPESIAL 🎉</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 1.5rem;">Pesan minimal 3 porsi, dapatkan GRATIS 1 porsi Es Teh Manis!</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Berlaku hingga 31 Desember 2024</p>
+        </div>
+    </section>
+      <!-- Menu Section -->
+    <section class="section" id="menu">
+        <div class="section-title">
+            <h2>Menu Spesial Kami</h2>
+            <p>Pilihan lauk terbaik dengan bumbu rahasia turun-temurun</p>
+        </div>
+        
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be added dynamically -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about" style="background: linear-gradient(rgba(255, 248, 225, 0.8), rgba(255, 248, 225, 0.8)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-attachment: fixed;">
+        <div class="section-title">
+            <h2>Tentang Kami</h2>
+            <p>Warisan Rasa Sejak 1985</p>
+        </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h3 style="color: var(--brown); font-size: 2rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Sejarah Warung Kami</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                        Didirikan pada tahun 1985 oleh H. Anwar Datuak Palimo Kayo, warung kami telah melayani cita rasa autentik Padang selama 3 generasi. Setiap resep diwariskan turun-temurun dari ranah Minang.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                        Kami menggunakan rempah-rempah pilihan langsung dari Sumatera Barat dan memasak dengan teknik tradisional untuk mempertahankan keaslian rasa.
+                    </p>
+                    <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">39</div>
+                            <div style="color: var(--brown); font-weight: 500;">Tahun Berdiri</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">50+</div>
+                            <div style="color: var(--brown); font-weight: 500;">Menu Variasi</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">3</div>
+                            <div style="color: var(--brown); font-weight: 500;">Generasi</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Warung Nasi Padang" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+        <div class="section-title">
+            <h2>Testimoni Pelanggan</h2>
+            <p>Apa kata mereka tentang rasa masakan kami</p>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="swiper-container" style="padding: 2rem 0;">
+                <div class="swiper-wrapper">
+                    <!-- Testimonials will be added dynamically -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+      <!-- Opening Hours -->
+    <section class="section" style="background: var(--light);">
+        <div class="section-title">
+            <h2>Jam Buka</h2>
+            <p>Kami siap melayani Anda</p>
+        </div>
+        
+        <div class="hours-grid" id="hoursGrid">
+            <!-- Hours will be added dynamically -->
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2>Kontak & Lokasi</h2>
+            <p>Kunjungi warung kami atau pesan online</p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="color: var(--brown); margin-bottom: 2rem; font-size: 1.8rem;"><i class="fas fa-info-circle"></i> Informasi Kontak</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Alamat</h4>
+                        <p>Jl. Nasi Padang No. 123, Kota Padang, Sumatera Barat 25171</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Telepon/WhatsApp</h4>
+                        <p>+62 812-3456-7890</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Email</h4>
+                        <p>order@nasipadangpremium.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Jam Operasional</h4>
+                        <p>Setiap Hari: 08:00 - 22:00 WIB</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--brown); margin-bottom: 1rem;">Pesan Sekarang:</h4>
+                    <button onclick="openWhatsApp()" style="width: 100%; background: #25D366; color: white; border: none; padding: 1.2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Order
+                    </button>
+                </div>
+            </div>
+            
+            <div>
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); height: 100%;">
+                    <h3 style="color: var(--brown); margin-bottom: 1.5rem; font-size: 1.8rem;"><i class="fas fa-map-marked-alt"></i> Lokasi Kami</h3>
+                    <div style="height: 400px; background: #f5f5f5; border-radius: 15px; overflow: hidden; position: relative;">
+                        <!-- Google Maps Placeholder -->
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%), linear-gradient(-45deg, #e0e0e0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e0e0e0 75%), linear-gradient(-45deg, transparent 75%, #e0e0e0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; display: flex; align-items: center; justify-content: center; color: var(--brown);">
+      <!-- Menu Section -->
+    <section class="section" id="menu">
+        <div class="section-title">
+            <h2>Menu Spesial Kami</h2>
+            <p>Pilihan lauk terbaik dengan bumbu rahasia turun-temurun</p>
+        </div>
+        
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be added dynamically -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about" style="background: linear-gradient(rgba(255, 248, 225, 0.8), rgba(255, 248, 225, 0.8)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-attachment: fixed;">
+        <div class="section-title">
+            <h2>Tentang Kami</h2>
+            <p>Warisan Rasa Sejak 1985</p>
+        </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h3 style="color: var(--brown); font-size: 2rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Sejarah Warung Kami</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                        Didirikan pada tahun 1985 oleh H. Anwar Datuak Palimo Kayo, warung kami telah melayani cita rasa autentik Padang selama 3 generasi. Setiap resep diwariskan turun-temurun dari ranah Minang.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                        Kami menggunakan rempah-rempah pilihan langsung dari Sumatera Barat dan memasak dengan teknik tradisional untuk mempertahankan keaslian rasa.
+                    </p>
+                    <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">39</div>
+                            <div style="color: var(--brown); font-weight: 500;">Tahun Berdiri</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">50+</div>
+                            <div style="color: var(--brown); font-weight: 500;">Menu Variasi</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">3</div>
+                            <div style="color: var(--brown); font-weight: 500;">Generasi</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Warung Nasi Padang" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+        <div class="section-title">
+            <h2>Testimoni Pelanggan</h2>
+            <p>Apa kata mereka tentang rasa masakan kami</p>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="swiper-container" style="padding: 2rem 0;">
+                <div class="swiper-wrapper">
+                    <!-- Testimonials will be added dynamically -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+      <!-- Opening Hours -->
+    <section class="section" style="background: var(--light);">
+        <div class="section-title">
+            <h2>Jam Buka</h2>
+            <p>Kami siap melayani Anda</p>
+        </div>
+        
+        <div class="hours-grid" id="hoursGrid">
+            <!-- Hours will be added dynamically -->
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2>Kontak & Lokasi</h2>
+            <p>Kunjungi warung kami atau pesan online</p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="color: var(--brown); margin-bottom: 2rem; font-size: 1.8rem;"><i class="fas fa-info-circle"></i> Informasi Kontak</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Alamat</h4>
+                        <p>Jl. Nasi Padang No. 123, Kota Padang, Sumatera Barat 25171</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Telepon/WhatsApp</h4>
+                        <p>+62 812-3456-7890</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Email</h4>
+                        <p>order@nasipadangpremium.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--brown); margin-bottom: 0.5rem;">Jam Operasional</h4>
+                        <p>Setiap Hari: 08:00 - 22:00 WIB</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--brown); margin-bottom: 1rem;">Pesan Sekarang:</h4>
+                    <button onclick="openWhatsApp()" style="width: 100%; background: #25D366; color: white; border: none; padding: 1.2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Order
+                    </button>
+                </div>
+            </div>
+            
+            <div>
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); height: 100%;">
+                    <h3 style="color: var(--brown); margin-bottom: 1.5rem; font-size: 1.8rem;"><i class="fas fa-map-marked-alt"></i> Lokasi Kami</h3>
+                    <div style="height: 400px; background: #f5f5f5; border-radius: 15px; overflow: hidden; position: relative;">
+                        <!-- Google Maps Placeholder -->
+                        <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%), linear-gradient(-45deg, #e0e0e0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e0e0e0 75%), linear-gradient(-45deg, transparent 75%, #e0e0e0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px; display: flex; align-items: center; justify-content: center; color: var(--brown);">
+      <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.9); border-radius: 10px;">
+                                <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                                <h4>Google Maps Integration</h4>
+                                <p>Tempel kode embed Google Maps di sini</p>
+                                <p style="font-size: 0.9rem; color: #666;">Contoh: &lt;iframe src="https://maps.google.com/maps?q=..."&gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <button onclick="openGoogleMaps()" style="flex: 1; background: #4285F4; color: white; border: none; padding: 1rem; border-radius: 10px; cursor: pointer; transition: var(--transition);">
+                            <i class="fab fa-google"></i> Buka di Maps
+                        </button>
+                        <button onclick="openWaze()" style="flex: 1; background: #33CCFF; color: white; border: none; padding: 1rem; border-radius: 10px; cursor: pointer; transition: var(--transition);">
+                            <i class="fab fa-waze"></i> Buka di Waze
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="logo" style="font-size: 1.8rem; margin-bottom: 1.5rem; display: block;">
+                    <i class="fas fa-utensils"></i>
+                    Nasi<span>Padang</span>Premium
+                </a>
+                <p>Menjaga warisan rasa autentik Padang sejak 1985. Setiap masakan dibuat dengan cinta dan resep turun-temurun.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 style="color: var(--secondary); margin-bottom: 1.5rem; font-size: 1.3rem;">Menu Populer</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #ccc; text-decoration: none; display: block; padding: 0.5rem 0; transition: var(--transition);">Rendang Sapi</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none; display: block; padding: 0.5rem 0; transition: var(--transition);">Ayam Pop</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none; display: block; padding: 0.5rem 0; transition: var(--transition);">Gulai Tunjang</a></li>
+                    <li><a href="#" style="color: #ccc; text-decoration: none; display: block; padding: 0.5rem 0; transition: var(--transition);">Dendeng Balado</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 style="color: var(--secondary); margin-bottom: 1.5rem; font-size: 1.3rem;">Metode Pembayaran</h4>
+                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <div style="background: white; color: var(--primary); width: 50px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-weight: bold;">COD</div>
+                    <div style="background: white; color: var(--primary); width: 50px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-gopay"></i></div>
+      // Cart Functions
+        function addToCart(itemId) {
+            const item = menuItems.find(i => i.id === itemId);
+            if (item) {
+                const existingItem = cart.find(i => i.id === itemId);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: item.id,
+                        name: item.name,
+                        price: item.price,
+                        quantity: 1
+                    });
+                }
+                updateCart();
+                showNotification(${item.name} ditambahkan ke keranjang!);
+            }
+        }
+
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            updateCart();
+        }
+
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            // Update cart items display
+            const cartItemsContainer = document.getElementById('cartItems');
+            cartItemsContainer.innerHTML = '';
+            
+            cartTotal = 0;
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = 
+                    <div style="text-align: center; padding: 3rem 1rem; color: #666;">
+                        <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                        <p>Keranjang belanja kosong</p>
+                    </div>
+                ;
+            } else {
+                cart.forEach(item => {
+                    cartTotal += item.price * item.quantity;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.style.cssText = 
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 1rem;
+                        background: #f9f9f9;
+                        border-radius: 10px;
+                        margin-bottom: 1rem;
+                    ;
+                    cartItem.innerHTML = 
+                        <div>
+                            <h4 style="color: var(--brown); margin-bottom: 0.5rem;">${item.name}</h4>
+                            <p style="color: var(--primary); font-weight: 600;">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</p>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                                <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" style="width: 25px; height: 25px; border-radius: 50%; background: #eee; border: none; cursor: pointer;">-</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" style="width: 25px; height: 25px; border-radius: 50%; background: #eee; border: none; cursor: pointer;">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" style="background: none; border: none; color: var(--primary); cursor: pointer; font-size: 1.2rem;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    ;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            }
+            
+            // Update total
+            document.getElementById('cartTotal').textContent = Rp ${cartTotal.toLocaleString('id-ID')};
+}
+menuGrid.innerHTML = '';
+            
+            menuItems.forEach(item => {
+                const menuCard = document.createElement('div');
+                menuCard.className = menu-card fade-in ${item.isHot ? 'hot' : ''};
+                menuCard.innerHTML = 
+                    <img src="${item.image}" alt="${item.name}" class="menu-image">
+                    <div class="menu-content">
+                        <div class="menu-header">
+                            <h3 style="color: var(--brown); font-size: 1.3rem;">${item.name}</h3>
+                            <div class="menu-price">Rp ${item.price.toLocaleString('id-ID')}</div>
+                        </div>
+                        <p style="color: #666; margin-bottom: 1rem; font-size: 0.95rem;">${item.description}</p>
+                        <div class="menu-rating">
+                            ${'★'.repeat(Math.floor(item.rating))}${'☆'.repeat(5-Math.floor(item.rating))}
+                            <span style="color: var(--brown); margin-left: 0.5rem;">${item.rating}</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart(${item.id})">
+                            <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                        </button>
+                    </div>
+                ;
+                menuGrid.appendChild(menuCard);
+            });
+        }
+
+        // Generate Testimonials
+        function generateTestimonials() {
+            const swiperWrapper = document.querySelector('.swiper-wrapper');
+            swiperWrapper.innerHTML = '';
+            
+            testimonials.forEach(testimonial => {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide';
+                slide.innerHTML = 
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">"${testimonial.text}"</div>
+                        <div class="testimonial-author">
+                            <img src="${testimonial.image}" alt="${testimonial.name}">
+                            <div>
+                                <h4 style="color: var(--brown);">${testimonial.name}</h4>
+                                <p style="color: #666;">${testimonial.role}</p>
+                                <div style="color: #ffc107; margin-top: 0.5rem;">
+                                    ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5-testimonial.rating)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ;
+                swiperWrapper.appendChild(slide);
+            });
+        }
+
+        // Generate Opening Hours
+        function generateOpeningHours() {
+            const hoursGrid = document.getElementById('hoursGrid');
+            hoursGrid.innerHTML = '';
+            
+            // Set today's day
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const today = new Date().getDay();
+            openingHours.forEach((hour, index) => {
+                hour.isToday = (index === today);
+            });
+            
+            openingHours.forEach(hour => {
+                const hourCard = document.createElement('div');
+                hourCard.className = hour-card ${hour.isToday ? 'today' : ''};
+                hourCard.innerHTML = 
+                    <div class="hour-day">${hour.day}</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: ${hour.isToday ? 'white' : 'var(--primary)'};">
+                        ${hour.open} - ${hour.close}
+                    </div>
+                    ${hour.isToday ? '<div style="margin-top: 0.5rem; background: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.9rem;">HARI INI</div>' : ''}
+                ;
+                hoursGrid.appendChild(hourCard);
+            });
+}
+// Animate on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            generateMenu();
+            generateTestimonials();
+            generateOpeningHours();
+            initSwiper();
+            animateOnScroll();
+            
+            // Add CSS animations
+            const style = document.createElement('style');
+            style.textContent = 
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            ;
+            document.head.appendChild(style);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Set active nav based on scroll
+            window.addEventListener('scroll', function() {
+                animateOnScroll();
+                
+                const sections = ['home', 'menu', 'about', 'testimonials', 'contact'];
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const element = document.getElementById(section);
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        if (rect.top <= 150 && rect.bottom >= 150) {
+                            currentSection = section;
+                        }
+                    }
+                });
+                
+                if (currentSection) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === #${currentSection}) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
+function updateQuantity(itemId, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(itemId);
+                return;
+            }
+            
+            const item = cart.find(i => i.id === itemId);
+            if (item) {
+                item.quantity = newQuantity;
+                updateCart();
+            }
+        }
+
+        function openCart() {
+            document.getElementById('cartSidebar').classList.add('active');
+            document.getElementById('cartOverlay').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.remove('active');
+            document.getElementById('cartOverlay').classList.remove('active');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Keranjang belanja kosong! Tambahkan item terlebih dahulu.');
+                return;
+            }
+            
+            const orderDetails = cart.map(item => 
+                ${item.name} x${item.quantity} = Rp ${(item.price * item.quantity).toLocaleString('id-ID')}
+            ).join('%0A');
+            
+            const total = cartTotal.toLocaleString('id-ID');
+            const customerName = prompt('Masukkan nama Anda:');
+            const customerAddress = prompt('Masukkan alamat pengiriman:');
+            
+            if (customerName && customerAddress) {
+                const message = Halo Nasi Padang Premium!%0A%0ASaya ingin memesan:%0A%0A${orderDetails}%0A%0ATotal: Rp ${total}%0A%0ANama: ${customerName}%0AAlamat: ${customerAddress}%0A%0AMohon konfirmasi ketersediaan dan total biaya termasuk ongkir.;
+                const whatsappURL = https://wa.me/6281234567890?text=${message};
+                
+                window.open(whatsappURL, '_blank');
+                
+                // Clear cart after order
+                cart = [];
+                updateCart();
+                closeCart();
+            }
+        }
+
+        function openWhatsApp() {
+            window.open('https://wa.me/6281234567890', '_blank');
+        }
+
+        function openGoogleMaps() {
+            window.open('https://maps.google.com/?q=Nasi+Padang+Premium+Padang', '_blank');
+        }
+
+        function openWaze() {
+            window.open('https://waze.com/ul?q=Nasi+Padang+Premium+Padang', '_blank');
+        }
+
+        function scrollToMenu() {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = 
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--primary);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            ;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize Swiper
+        let swiper;
+        function initSwiper() {
+            swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            });
+}
